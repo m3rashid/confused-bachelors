@@ -1,61 +1,47 @@
 // Databasse manager package
-const mongoose = require("mongoose")
 
-const marked = require("marked");
-const createDomPurify = require("dompurify");
-const {JSDOM} = require("jsdom");
-const dompurify = createDomPurify(new JSDOM().window);
+const mongoose = require("mongoose");
+
+mongoose.connect('mongodb+srv://sarfraz:2june2002@cluster0.ialmq.mongodb.net/Blogs', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Database to be used minimalist to ensure no unnecessary and repeated items in the DB
 
 const blogSchema = new mongoose.Schema({
     title: {
-        type: String, 
+        type: String,
         required: true
     },
     category: {
-        type: String, 
-        required: true
-    },
-    writer: {
-        type: String, 
+        type: String,
         required: true
     },
     content: {
-        type: String, 
-        required: true
-    },
-    comments: [{
-            id: {
-                type: Number, 
-                unique: true, 
-                required: true
-            }, 
-            name: String, 
-            text: String
-        }],
-    commentReplies: [{
-        name: String, 
-        text: String, 
-        parentComment: Number
-    }],
-    likes: {
-        type: Number, 
-        default: 0
-    },
-    time: {
-        type: Date,
-        default: new Date,
+        type: String,
         required: true
     }
-    // category: {type: String, required: true},
-    // category: {type: String, required: true},
 
-})
-blogSchema.pre("validate", function () {
-    if(this.content){
-        this.content = dompurify.sanitize(marked(this.content))
-    }
-})
+});
 
-module.exports = new mongoose.model("Blog", blogSchema)
+
+
+const Posts = mongoose.model('posts', blogSchema);
+
+
+// module.exports.Blog_home = function() {
+//     console.log("CHECKING BLOGS");
+//     let jsonans;
+//     Posts.find({}, function(result, err) {
+//         if (!err) {
+//             return err;
+//         } else {
+//             console.log(result);
+//             jsonas = result;
+//         }
+//     });
+//     console.log(jsonans);
+//     return jsonans;
+// }
+
+Posts.find({}, function(res, err) {
+    console.log(res);
+});

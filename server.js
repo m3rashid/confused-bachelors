@@ -12,107 +12,48 @@
 // lodash -- formatting text for slugs or titles (use slug package instead)
 // slugify -- to maintain the uniqueness of URL by adding URL slug at the end
 
+const express = require("express");
+const bodyParser = require("body-parser");
+const { Template } = require("ejs");
+const app = express();
+var _ = require('lodash');
 
-const express = require("express")
-const bodyParser = require("body-parser")
-const ejs = require("ejs")
-const mongoose = require("mongoose")
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/public", express.static("public"));
+app.set("view engine", "ejs");
 
-// Database models
-const Blog = require("./models/blogs")
-const Writer = require("./models/writer")
-
-// Handling environment variables
-require('dotenv').config()
-
-const passport = require("passport")
-const passportLocalMongoose = require("passport-local-mongoose")
-const session = require("express-session")
-
-const marked = require("marked")
-const createDomPurify = require("dompurify")
-const {JSDOM} = require("jsdom")
-const dompurify = createDomPurify(new JSDOM().window)
-
-// Setting up initial express server
-const app = express()
-app.set('view engine', 'ejs')
-app.set("views", "views")
-app.use(express.static('static'))
-app.use(bodyParser.urlencoded({ extended: true }))
-
-
-// Setitng up user session
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}))
-
-// initializing user session
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Mongoose connection with database
-mongoose.connect("mongodb://localhost:27017/blog", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-
-// Passport authentication setup
-passport.use(Writer.createStrategy());
-passport.serializeUser(Writer.serializeUser());
-passport.deserializeUser(Writer.deserializeUser());
-
-
-
-
-
-
-
-
+const Blogs = require("./blog");
 // Setting up the login route
-app.get("/login", function (req, res) {
-    res.render("login", {
-        titleTop: "Login"
+app.get("/:id/blogs", async function(req, res) {
+    const id = req.params.id;
+    console.log(id);
+    let ans = await Blogs.findbyauthor(id);
+    res.send(ans);
+});
+
+app.get("/compose", async function(req, res) {
+    res.render("compose", {
+        log: ""
     });
 });
 
-app.get("/", (req, res) => {
-    res.render("index-homepage.ejs")
+app.post("/compose", async function(req, res) {
+    let title = req.body.title;
+    let writer = _.lowerCase(req.body.writer);
+    let content = req.body.content;
+
+    await Blogs.addBlog(writer, title, content);
+    res.render("compose", {
+        log: "BLOG HAS BEEN ADDED"
+    });
 })
 
 
+app.get("/", async function(req, res) {
+    let ans = await Blogs.find();
+    res.send(ans);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get("/logout", function(req, res){
-    req.logout();
-    res.redirect("/");
-})
-
-// Firing up (listening to) the exress server
-const port = process.env.PORT || 3000
-app.listen(port, function () {
-    console.log(`Server is up on port ${port}`);
+app.listen(3000, async function(req, res) {
+    console.log("Listening on port 3000");
 });
