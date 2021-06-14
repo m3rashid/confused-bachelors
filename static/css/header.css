@@ -1,0 +1,25 @@
+:root{
+    --backgroundColor: #000000;    /* Dark mode color (partial black) */  
+    --black: #000000;   /* Complete dark black used */
+
+    /* Background and border gradient Colors */
+    --gradientColorZero: #000000;
+    --gradientColorOne: #000000;
+    --gradientColorTwo: #000000;
+    --gradientColorThree: #000000;
+    --gradientColorFour: #000000;
+    
+    /* Text colors */
+    --textColorbasic: #000000;
+    --textColorTags: #000000;
+    --textColorHighlight: #000000;
+
+    /* Spacings */
+    --divSpacing: 00px;
+}
+
+*{
+    box-sizing: border-box;
+    border: none;
+    padding: none;
+}

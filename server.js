@@ -22,20 +22,24 @@ const mongoose = require("mongoose")
 const Blog = require("./models/blogs")
 const Writer = require("./models/writer")
 
-const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
+// Handling environment variables
+require('dotenv').config()
+
+const passport = require("passport")
+const passportLocalMongoose = require("passport-local-mongoose")
 const session = require("express-session")
 
-const marked = require("marked");
-const createDomPurify = require("dompurify");
-const {JSDOM} = require("jsdom");
-const dompurify = createDomPurify(new JSDOM().window);
+const marked = require("marked")
+const createDomPurify = require("dompurify")
+const {JSDOM} = require("jsdom")
+const dompurify = createDomPurify(new JSDOM().window)
 
 // Setting up initial express server
-const app = express();
-app.set('view engine', 'ejs');
-app.use(express.static('static'));
-app.use(bodyparser.urlencoded({ extended: true }));
+const app = express()
+app.set('view engine', 'ejs')
+app.set("views", "views")
+app.use(express.static('static'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 
 // Setitng up user session
@@ -71,7 +75,9 @@ app.get("/login", function (req, res) {
     });
 });
 
-
+app.get("/", (req, res) => {
+    res.render("index-homepage.ejs")
+})
 
 
 

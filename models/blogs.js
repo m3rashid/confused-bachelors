@@ -45,14 +45,14 @@ const blogSchema = new mongoose.Schema({
     },
     time: {
         type: Date,
-        default: new Date.toDateString(),
+        default: new Date,
         required: true
     }
     // category: {type: String, required: true},
     // category: {type: String, required: true},
 
 })
-blogsSchema.pre("validate", function () {
+blogSchema.pre("validate", function () {
     if(this.content){
         this.content = dompurify.sanitize(marked(this.content))
     }
