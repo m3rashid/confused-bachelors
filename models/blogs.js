@@ -1,4 +1,10 @@
+// Databasse manager package
 const mongoose = require("mongoose")
+
+const marked = require("marked");
+const createDomPurify = require("dompurify");
+const {JSDOM} = require("jsdom");
+const dompurify = createDomPurify(new JSDOM().window);
 
 // Database to be used minimalist to ensure no unnecessary and repeated items in the DB
 
@@ -12,6 +18,10 @@ const blogSchema = new mongoose.Schema({
         required: true
     },
     writer: {
+        type: String, 
+        required: true
+    },
+    content: {
         type: String, 
         required: true
     },
@@ -41,6 +51,11 @@ const blogSchema = new mongoose.Schema({
     // category: {type: String, required: true},
     // category: {type: String, required: true},
 
+})
+blogsSchema.pre("validate", function () {
+    if(this.content){
+        this.content = dompurify.sanitize(marked(this.content))
+    }
 })
 
 module.exports = new mongoose.model("Blog", blogSchema)
