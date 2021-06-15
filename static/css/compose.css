@@ -6,7 +6,7 @@ body {
 
 .section {
     background-color: white;
-    height: 1200px;
+    height: 120%;
     margin: 0% 10%;
     border-radius: 25px;
     padding: 4%;
@@ -55,4 +55,13 @@ body {
 .compose__heading {
     text-align: center;
     font-weight: 200;
+}
+
+.fr-box {
+    margin-bottom: 2%;
+    border-radius: 50px!important;
+}
+
+.second-toolbar {
+    display: none!important;
 }
