@@ -7,8 +7,8 @@
     --gradientColorZero: #E4521F;
     --gradientColorOne: #AE012E;
     --gradientColorTwo: #328F96;
-    --gradientColorThree: #000000;
-    --gradientColorFour: #000000;
+    --gradientColorThree: var(--black);
+    --gradientColorFour: var(--black);
     
     /* Text colors */
     --textColorbasic: #ffffff;
@@ -33,7 +33,7 @@
 
   /* navbar stuff */
   #navbar {
-    background-color: #343a40;
+    background-color: var(--backgroundColor);
     padding: 0;
   }
   #navbar_main{
@@ -70,11 +70,11 @@
   }
   
   .nav-link {
-    color: #ffffff;
+    color: var(--textColorbasic);
     font-size: 0.9rem;
   }
   .nav-link:hover{
-    color: #E4521F;
+    color: var(--gradientColorZero);
   }
   
   .nav__btn {
@@ -93,10 +93,10 @@
   
   .navbar-brand {
     margin-left: 2rem;
-    color: #ffffff;
+    color: var(--textColorbasic);
   }
   .navbar-brand:hover{
-    color: #ffffff
+    color: var(--textColorbasic)
   }
   
   .dropdown:hover .dropdown-menu {
@@ -107,7 +107,7 @@
   .navbar__btn {
    margin-left: 1rem;
     background-color: transparent;
-    color: #ffffff;
+    color: var(--textColorbasic);
     border: none;
     font-size: 2rem;
   }
@@ -124,7 +124,7 @@
     transition: transform 0.3s;
   }
   .nav__close i{
-  color: #ffffff
+  color: var(--textColorbasic)
   }
   
   ul.navbar-nav {
@@ -148,7 +148,7 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: var(--textColorbasic);
     border-radius: 10px;
     box-shadow: inset 16px 5px 12px #f0f0f0;
   }
@@ -158,7 +158,7 @@
     margin: 0;
     width: 100vw;
     height: 4px;
-    background: linear-gradient(to right, #ff6900 25%,#AE012E 40%, #00b0ff 75%);
+    background: linear-gradient(to right, var(--textColorTags) 25%,var(--gradientColorOne) 40%, var(--textColorHighlight) 75%);
     opacity: 0.75;
   }
   
@@ -169,7 +169,7 @@
       display: block;
     }
     .mobile-offcanvas {
-      background-color: #343a40;
+      background-color: var(--backgroundColor);
       visibility: hidden;
       transform: translateX(-100%);
       border-radius: 0;
@@ -226,7 +226,7 @@
   
     .navbar-brand {
       margin-left: 10px;
-      color: #ffffff;
+      color: var(--textColorbasic);
     }
   }
   
@@ -257,7 +257,7 @@
   
   input[type=search].search-box-input {
       background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 5px center;
-      border: solid 1px #ccc;
+      border: solid 2px ;
       padding: 2px;
       
       -webkit-border-radius: 10em;
@@ -271,7 +271,8 @@
   input[type=search].search-box-input:focus {
       width: 130px;
       background-color: #fff;
-      border-color: #66CC75;
+      border-width: 2px;
+      border-color: var(--textColorTags);
       
       -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
       -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
