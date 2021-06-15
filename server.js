@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Setitng up user session
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: "Secret",
         resave: false,
         saveUninitialized: false,
     })
