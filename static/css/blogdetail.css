@@ -28,11 +28,18 @@ body::-webkit-scrollbar{
 }
 .blog-content{
     border-radius: 15px;
-    background-color: white;
+    background-color: black;
+    color: white;
     padding: 50px;
 }
 .blog-content p{
     text-align: justify;
+}
+.card{
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    padding: 20px !important;
 }
 .row{
     margin: 40px;
@@ -45,15 +52,19 @@ body::-webkit-scrollbar{
     background-color: black;
     border-radius: 15px;
 }
-#commentor, #comment-text{
+#commentor, #comment-text, #comment-btn{
     margin: 10px;
     height: 35px;
-    width: 250px;
+    width: 500px;
     padding-left: 10px;
     display: block;
 }
+#comment-btn{
+    font-weight: bold;
+}
 .comment-row{
     color: white;
+    margin: 52px;
 }
 
 
@@ -68,7 +79,7 @@ body::-webkit-scrollbar{
     .hide-in-mobile{
         display: none;
     }
-    #commentor, #comment-text{
+    #commentor, #comment-text, #comment-btn{
         width: 100%;
     }
     .comment-row{

@@ -1,0 +1,142 @@
+footer.row{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    margin: 52px;
+}
+.foot-down{
+    background-color: black;
+    margin-top: 70px;
+    border-radius: 15px;
+}
+.foot-down ul{
+    display: inline-block;
+    margin: 50px;
+    margin-right: 30px;
+}
+
+.foot-down ul li{
+    list-style-type: none;
+}
+.foot-down ul li a{
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+.foot-down ul li a:focus, .foot-down ul li a:hover{
+    color: orange;
+}
+.foot-down ul li:nth-child(1){
+    color: orange;
+    font-size: 1.1em;
+}
+
+
+
+.newsletter{
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    background-color: rgb(74, 74, 74);
+    z-index: 2;
+    width: 500px;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.newsletter h3{
+    color: orange;
+}
+.newsletter p{
+    margin-top: -5px;
+    color: black;
+}
+.newsletter input, .newsletter button{
+    margin-bottom: 5px;
+    padding-left: 10px;
+    height: 35px;
+}
+.newsletter input:focus, .newsletter button:focus{
+    outline: none;
+}
+.newsletter-email{
+    width: 69%;
+}
+.newsletter-fname, .newsletter-lname{
+    width: 49.5%;
+}
+.newsletter-btn{
+    width: 30%;
+}
+
+
+
+.follow-bottom{
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-spacing: 0.5em;
+    margin-bottom: 30px;
+}
+.follow-bottom a{
+    text-decoration: none;
+    color: white;
+}
+.follow-bottom a i{
+    font-size: 3em;
+}
+.follow-bottom a:nth-child(1) i{
+    background: -webkit-linear-gradient(45deg, rgb(255, 0, 0),rgb(250, 212, 0), rgb(255, 0, 255));
+    background: linear-gradient();
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.follow-bottom a:nth-child(2) i{
+    color: red;
+}
+.follow-bottom a:nth-child(3) i{
+    color: rgb(29, 161, 242);
+}
+.follow-bottom a:nth-child(4) i{
+    color: rgb(114, 137, 217)
+}
+
+@media(max-width: 768px){
+    footer.row{
+        margin: 15px;
+    }
+    .foot-down ul{
+        margin: 0 -8px 30px -8px;
+    }
+    .foot-down ul:nth-child(1){
+        margin-top: 140px;
+        margin-left: -15px;
+    }
+    .follow-bottom{
+        margin-top: 0;
+    }
+    .follow-bottom a i{
+        font-size: 1.8em;
+    }
+    
+    
+    
+    
+    
+    .newsletter{
+        top: 20px;
+        right: 20px;
+        width: 75%;
+    }
+    .newsletter input, .newsletter button{
+        height: 30px;
+    }
+    .newsletter-fname, .newsletter-lname{
+        width: 49%;
+    }
+    .newsletter-btn{
+        width: 29%;
+    }
+}

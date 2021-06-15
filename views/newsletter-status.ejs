@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+
+<div class="container">
+    <h1 class="display-4"><%= status %></h1>
+    <!-- status is one of:
+    Successful!
+    Sorry! -->
+
+    <p class="lead"><%= response %></p>
+    <!-- Response is one of: 
+    You 've been successfully signed up to our Blog page, look forwards to lots of awesome content!
+    There was a problem signing you up. Please try again from below. -->
+</div>
+
+
+<%- include("partials/footer") %>
