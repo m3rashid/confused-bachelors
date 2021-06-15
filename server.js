@@ -44,11 +44,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setitng up user session
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-  })
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+    })
 );
 
 // initializing user session
@@ -56,11 +56,31 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Mongoose connection with database
-mongoose.connect("mongodb://localhost:27017/blog", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
+const Blogs = require("./blog");
+// Setting up the login route
+app.get("/:id/blogs", async function(req, res) {
+    const id = req.params.id;
+    console.log(id);
+    let ans = await Blogs.findbyauthor(id);
+    res.send(ans);
 });
+
+app.get("/compose", async function(req, res) {
+    res.render("compose", {
+        log: ""
+    });
+});
+
+app.post("/compose", async function(req, res) {
+    let title = req.body.title;
+    let writer = _.lowerCase(req.body.writer);
+    let content = req.body.content;
+
+    await Blogs.addBlog(writer, title, content);
+    res.render("compose", {
+        log: "BLOG HAS BEEN ADDED"
+    });
+})
 
 // Passport authentication setup
 passport.use(Writer.createStrategy());
@@ -68,69 +88,67 @@ passport.serializeUser(Writer.serializeUser());
 passport.deserializeUser(Writer.deserializeUser());
 
 // Setting up the login route
-app.get("/login", function (req, res) {
-  res.render("login", {
-    titleTop: "Login",
-  });
+app.get("/login", function(req, res) {
+    res.render("login", {
+        titleTop: "Login",
+    });
 });
 
 app.get("/", (req, res) => {
-  res.render("blog-detail-homepage.ejs");
+    res.render("blog-detail-homepage.ejs");
 });
 
-app.post("/newsletter", function (req, res) {
-  let firstName = req.body.fName;
-  let lastName = req.body.lName;
-  let email = req.body.email;
+app.post("/newsletter", function(req, res) {
+    let firstName = req.body.fName;
+    let lastName = req.body.lName;
+    let email = req.body.email;
 
-  let data = {
-    members: [
-      {
-        email_address: email,
-        status: "subscribed",
-        merge_fields: {
-          FNAME: firstName,
-          LNAME: lastName,
+    let data = {
+        members: [{
+            email_address: email,
+            status: "subscribed",
+            merge_fields: {
+                FNAME: firstName,
+                LNAME: lastName,
+            },
+        }, ],
+    };
+    let jsonData = JSON.stringify(data);
+
+    let options = {
+        url: process.env.MAILCHIMP_URL,
+        method: "POST",
+        headers: {
+            Authorization: process.env.MAILCHIMP_AUTH,
         },
-      },
-    ],
-  };
-  let jsonData = JSON.stringify(data);
+        body: jsonData,
+    };
 
-  let options = {
-    url: process.env.MAILCHIMP_URL,
-    method: "POST",
-    headers: {
-      Authorization: process.env.MAILCHIMP_AUTH,
-    },
-    body: jsonData,
-  };
-
-  request(options, function (error, response, body) {
-    if (error) {
-      res.render("newsletter-status.ejs", {
-        // Options to be taken care of (failure)
-      });
-    }
-    if (response.statusCode == 200) {
-      res.render("newsletter-status.ejs", {
-        // Options to be taken care of (success)
-      });
-    } else {
-      res.render("newsletter-status.ejs", {
-        // Options to be taken care of (failure)
-      });
-    }
-  });
+    request(options, function(error, response, body) {
+        if (error) {
+            res.render("newsletter-status.ejs", {
+                // Options to be taken care of (failure)
+            });
+        }
+        if (response.statusCode == 200) {
+            res.render("newsletter-status.ejs", {
+                // Options to be taken care of (success)
+            });
+        } else {
+            res.render("newsletter-status.ejs", {
+                // Options to be taken care of (failure)
+            });
+        }
+    });
 });
 
-app.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/");
+app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
 });
 
 // Firing up (listening to) the exress server
 const port = process.env.PORT || 3000;
-app.listen(port, function () {
-  console.log(`Server is up on port ${port}`);
+app.listen(port, function() {
+    console.log(`Server is up on port ${port}`);
 });
