@@ -75,6 +75,9 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/", (req, res) => {
+  res.render("index-homepage.ejs");
+});
+app.get("/blog", (req, res) => {
   res.render("blog-detail-homepage.ejs");
 });
 

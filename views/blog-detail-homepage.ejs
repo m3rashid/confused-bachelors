@@ -1,12 +1,12 @@
 <%- include("partials/header") %>
 
-<div class="row">
-    <div class="col-md-9">
+<div class="row row-spaced">
+    <div class="col-md-9 mb-0">
         <h1 class="blog-title">The Title of the blog goes here in this section</h1>
 
         <div>
-            <img src="/images/1.png" alt="" class="writer-photo">
-            <span class="writer-name">Writer Name</span>
+            <img src="/images/1.png" alt="" class="writer-photo">&nbsp;
+            <span class="writer-name">Writer Name</span>&nbsp;
             <span class="time">Mon 14 June 2021</span>
         </div>
 
@@ -22,8 +22,20 @@
             </p>
         </div>
 
+        <ul class="comment-show">
+            <% for(let i=0; i<6; i++){ %>
+                <li class="comment-li">
+                    <img src="/images/1.png" alt="" class="writer-photo">
+                    &nbsp;
+                    <span class="writer-name">Commentor name</span>
+                    <br>
+                    <span class="comment-data">This is a comment</span>
+                </li>
+            <% } %>
+        </ul>
 
     </div>
+    
     <div class="col-md-3 hide-in-mobile">
         <div class="card p-2">
             Card here, i am a card, noice to meet you
