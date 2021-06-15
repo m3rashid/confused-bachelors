@@ -74,7 +74,7 @@
     font-size: 0.9rem;
   }
   .nav-link:hover{
-    color: var(--gradientColorZero);
+    color: var(--textColorTags);
   }
   
   .nav__btn {
@@ -82,7 +82,7 @@
    height:54px;
   }
   .nav__btn:hover{
-    background-color: #201e22;
+    background-color: #141414;
     opacity: 1;
   }
   li.nav-item a{
