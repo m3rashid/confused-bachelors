@@ -1,0 +1,36 @@
+<%- include('./partials/header.ejs') %>
+
+    </head>
+
+    <body>
+        <div class="section">
+            <h1 class="compose__heading">
+                Compose A new Blog
+            </h1>
+            <h3 class="text-warning form__log">
+                <%=log%>
+            </h3>
+            <form action="" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Enter Title</label>
+                    <input type="text" class="form-control w-50 p-3" name="title" id="title" placeholder="Enter Title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Enter Writer Name(Only for Now)</label>
+                    <input type="text" class="form-control w-50 p-3" name="writer" id="title" placeholder="Enter Writer's Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Category:</label>
+                    <select class="form-control w-50 p-3" name="category">
+                      <option value="Nil">Abhi immediate soche ni h.. sochenge</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Content</label>
+                    <textarea class="form-control" name="content" id="content" rows="20"></textarea>
+                </div>
+                <button class="compose__submit" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
