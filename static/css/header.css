@@ -28,6 +28,10 @@
 /* navbar stuff */
 #navbar {
   background-color: #343a40;
+  padding: 0;
+}
+#navbar_main{
+  padding: 0;
 }
 
 body.offcanvas-active {
@@ -60,22 +64,33 @@ body.offcanvas-active {
 }
 
 .nav-link {
-  color: #f0f0f0;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+.nav-link:hover{
+  color: #E4521F;
 }
 
 .nav__btn {
-  margin-left: 10px;
-  margin-right: 10px;
+ margin: 0 10px;
+ height:54px;
 }
-
+.nav__btn:hover{
+  background-color: #201e22;
+  opacity: 1;
+}
+li.nav-item a{
+ 
+  display: flex;
+  align-items: center;
+}
 
 .navbar-brand {
-  /* background-color: red; */
-
-  color: #ecdbba;
+  margin-left: 2rem;
+  color: #ffffff;
 }
 .navbar-brand:hover{
-  color: #ecdbba
+  color: #ffffff
 }
 
 .dropdown:hover .dropdown-menu {
@@ -86,7 +101,7 @@ body.offcanvas-active {
 .navbar__btn {
  margin-left: 1rem;
   background-color: transparent;
-  color: #ecdbba;
+  color: #ffffff;
   border: none;
   font-size: 2rem;
 }
@@ -103,7 +118,7 @@ div.offcanvas-header{
   transition: transform 0.3s;
 }
 .nav__close i{
-color: #ecdbba
+color: #ffffff
 }
 
 ul.navbar-nav {
@@ -136,9 +151,9 @@ hr.navbar-border {
   border: none;
   margin: 0;
   width: 100vw;
-  height: 5px;
-  background: linear-gradient(to right, #005F99 25%,#FF449F 50%,#FFF5B7 75%, #00EAD3 100%);
-  opacity: 1;
+  height: 4px;
+  background: linear-gradient(to right, #ff6900 25%,#AE012E 40%, #00b0ff 75%);
+  opacity: 0.75;
 }
 
 /* ============ mobile view ============ */
@@ -185,6 +200,28 @@ hr.navbar-border {
   ::-webkit-scrollbar {
     display: none;
   }
+  a.navbar-brand{
+    margin-left: 0;
+    padding-left:1rem;
+  }
+  #navbar_main .container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+  }
+ul.navbar-nav{
+  width:100%;
+}
+.navbar-nav .nav-link{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left:1rem;
+
+}
+
+  .navbar-brand {
+    margin-left: 10px;
+    color: #ffffff;
+  }
 }
 
 
@@ -193,6 +230,9 @@ hr.navbar-border {
 
 input {
 	outline: none;
+}
+#search-box input[type=submit]{
+ display: none;
 }
 input[type=search].search-box-input {
 	-webkit-appearance: textfield;
@@ -209,9 +249,9 @@ input.search-box-input::-webkit-search-cancel-button {
 }
 
 input[type=search].search-box-input {
-	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 5px center;
 	border: solid 1px #ccc;
-	padding: 5px 8px 5px 3px;
+	padding: 2px;
 	
 	-webkit-border-radius: 10em;
 	-moz-border-radius: 10em;
@@ -271,7 +311,7 @@ input.search-box-input::-webkit-input-placeholder {
   text-decoration: none;
   color: white;
   margin: 0 1rem;
-  font-size: 36px;
+  font-size: 28px;
   transition:0.2s;
 }
 .user-profile:hover{
@@ -284,22 +324,4 @@ input.search-box-input::-webkit-input-placeholder {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
-:root{
-    --backgroundColor: #242424;    /* Dark mode color (partial black) */  
-    --black: #000000;   /* Complete dark black used */
 
-    /* Background and border gradient Colors */
-    --gradientColorZero: #E4521F;
-    --gradientColorOne: #AE012E;
-    --gradientColorTwo: #328F96;
-    --gradientColorThree: #000000;
-    --gradientColorFour: #000000;
-    
-    /* Text colors */
-    --textColorbasic: #ffffff;
-    --textColorTags: #ff6900;
-    --textColorHighlight: #00b0ff;
-
-    /* Spacings */
-    --divSpacing: 00px;
-}
