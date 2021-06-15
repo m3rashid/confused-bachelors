@@ -1,25 +1,282 @@
-:root{
-    --backgroundColor: #000000;    /* Dark mode color (partial black) */  
-    --black: #000000;   /* Complete dark black used */
+:root {
+  --backgroundColor: #000000; /* Dark mode color (partial black) */
+  --black: #000000; /* Complete dark black used */
 
-    /* Background and border gradient Colors */
-    --gradientColorZero: #000000;
-    --gradientColorOne: #000000;
-    --gradientColorTwo: #000000;
-    --gradientColorThree: #000000;
-    --gradientColorFour: #000000;
-    
-    /* Text colors */
-    --textColorbasic: #000000;
-    --textColorTags: #000000;
-    --textColorHighlight: #000000;
+  /* Background and border gradient Colors */
+  --gradientColorZero: #000000;
+  --gradientColorOne: #000000;
+  --gradientColorTwo: #000000;
+  --gradientColorThree: #000000;
+  --gradientColorFour: #000000;
 
-    /* Spacings */
-    --divSpacing: 00px;
+  /* Text colors */
+  --textColorbasic: #000000;
+  --textColorTags: #000000;
+  --textColorHighlight: #000000;
+
+  /* Spacings */
+  --divSpacing: 00px;
 }
 
-*{
-    box-sizing: border-box;
-    border: none;
-    padding: none;
+* {
+  box-sizing: border-box;
+  border: none;
+  padding: none;
+}
+
+/* navbar stuff */
+#navbar {
+  background-color: #343a40;
+}
+
+body.offcanvas-active {
+  overflow: hidden;
+}
+
+.offcanvas-header {
+  display: none;
+}
+
+.screen-darken {
+  height: 100%;
+  width: 0%;
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(34, 34, 34, 0.6);
+  transition: opacity 0.2s linear, visibility 0.2s, width 2s ease-in;
+}
+
+.screen-darken.active {
+  z-index: 10;
+  transition: opacity 0.3s ease, width 0s;
+  opacity: 1;
+  width: 100%;
+  visibility: visible;
+}
+
+.nav-link {
+  color: #f0f0f0;
+}
+
+.nav__btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.navbar-brand {
+  /* background-color: red; */
+
+  color: #ecdbba;
+}
+.navbar-brand:hover{
+  color: #ecdbba
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.navbar__btn {
+ margin-left: 1rem;
+  background-color: transparent;
+  color: #ecdbba;
+  border: none;
+  font-size: 2rem;
+}
+
+div.offcanvas-header{
+  text-align: start;
+}
+.nav__close {
+  font-size: 1.5rem;
+  font-weight:100;
+  border: none;
+  background: transparent;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+ul.navbar-nav {
+  justify-items: end;
+}
+
+/* NAVBAR */
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4861c;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4861c;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: inset 16px 5px 12px #f0f0f0;
+}
+
+hr.navbar-border {
+  border: none;
+  margin: 0;
+  width: 100vw;
+  height: 5px;
+  background: linear-gradient(to right, #005F99 25%,#FF449F 50%,#FFF5B7 75%, #00EAD3 100%);
+  opacity: 1;
+}
+
+/* ============ mobile view ============ */
+
+@media all and (max-width: 991px) {
+  .offcanvas-header {
+    display: block;
+  }
+  .mobile-offcanvas {
+    background-color: #343a40;
+    visibility: hidden;
+    transform: translateX(-100%);
+    border-radius: 0;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1200;
+    width: 50%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  .mobile-offcanvas.show {
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .mobile-offcanvas .container,
+  .mobile-offcanvas .container-fluid {
+    display: block;
+  }
+  .container,
+  .container-sm {
+    max-width: 100% !important;
+  }
+  .nav__logo {
+    width: 100px;
+    object-fit: cover;
+  }
+  .nav__btn {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+/* search */
+
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+#search-box{
+  margin: auto 5px;
+}
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 5px 8px 5px 3px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+/* search box*/
+#search-box input[type=search] {
+	width: 25px;
+
+	color: transparent;
+	cursor: pointer;
+}
+#search-box input[type=search]:hover {
+	background-color: #fff;
+}
+#search-box input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+}
+#search-box input:-moz-placeholder {
+	color: transparent;
+}
+#search-box input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+.nav-user-info{
+  padding: 0 1rem;
+}
+
+.user-profile{
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  font-size: 36px;
+  transition:0.2s;
+}
+.user-profile:hover{
+  color: rgb(175, 174, 174);
+  transition:0.2s;
+
+}
+
+.user-profile a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
