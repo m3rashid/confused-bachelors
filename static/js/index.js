@@ -78,7 +78,7 @@ $('.owl-carousel').owlCarousel({
             items: 5
         }
     }
-})
+});
 
 var carouselitem = document.querySelectorAll(".owl-item");
 
