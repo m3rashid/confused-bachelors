@@ -73,8 +73,8 @@ app.get("/compose", async function(req, res) {
 
 app.post("/compose", async function(req, res) {
     let title = req.body.title;
-    let writer = _.lowerCase(req.body.writer);
-    let content = req.body.content;
+    let writer = req.body.writer;
+    let content = req.body.blog;
 
     await Blogs.addBlog(writer, title, content);
     res.render("compose", {
