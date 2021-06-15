@@ -103,6 +103,57 @@ app.get("/", (req, res) => {
 
 
 
+app.post("/newsletter", function(req, res){
+    let firstName = req.body.fName;
+    let lastName = req.body.lName;
+    let email = req.body.email;
+
+    let data = {
+        members:[
+          {
+            email_address: email,
+            status:"subscribed",
+            merge_fields: {
+                FNAME:firstName,
+                LNAME:lastName
+            }
+        }]
+    };
+    let jsonData = JSON.stringify(data);
+
+    let options = {
+    url: process.env.MAILCHIMP_URL,
+    method: "POST",
+    headers: {
+      "Authorization": process.env.MAILCHIMP_AUTH
+    },
+    body: jsonData
+  };
+  
+  request(options, function (error, response, body) {
+    if (error) {
+      res.render("newsletter-status.ejs", {
+          // Options to be taken care of (failure)
+      });
+    }
+    if (response.statusCode == 200) {
+      res.render("newsletter-status.ejs", {
+        // Options to be taken care of (success)
+    });
+    } 
+    else {
+      res.render("newsletter-status.ejs", {
+        // Options to be taken care of (failure)
+    });
+    }
+  });
+
+
+
+
+
+
+})
 
 
 
