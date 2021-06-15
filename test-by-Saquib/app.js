@@ -1,20 +1,18 @@
+// jshint esversion: 8
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
-
 
 const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/signup.html")
+  res.sendFile(__dirname + "/signup.html");
 });
 
 app.post("/", function (req, res) {
-
   var firstName = req.body.fName;
   var lastName = req.body.lName;
   var email = req.body.email;
@@ -26,10 +24,10 @@ app.post("/", function (req, res) {
         status: "subscribed",
         merge_fields: {
           FNAME: firstName,
-          LNAME: lastName
-        }
-      }
-    ]
+          LNAME: lastName,
+        },
+      },
+    ],
   };
 
   var jsonData = JSON.stringify(data);
@@ -38,22 +36,21 @@ app.post("/", function (req, res) {
     url: "https://us6.api.mailchimp.com/3.0/lists/6db1a9952f",
     method: "POST",
     headers: {
-      "Authorization": "saquibali7 ee5b582973b1589c99791770757d5a18-us6"
+      Authorization: "saquibali7 ee5b582973b1589c99791770757d5a18-us6",
     },
-    body: jsonData
+    body: jsonData,
   };
 
   request(options, function (error, response, body) {
     if (error) {
       res.sendFile(__dirname + "/failure.html");
-    } if (response.statusCode == 200) {
+    }
+    if (response.statusCode == 200) {
       res.sendFile(__dirname + "/success.html");
     } else {
       res.sendFile(__dirname + "/failure.html");
     }
   });
-
-
 });
 
 app.post("/failure", function (req, res) {

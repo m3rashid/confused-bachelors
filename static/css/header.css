@@ -1,22 +1,23 @@
-:root {
-  --backgroundColor: #000000; /* Dark mode color (partial black) */
-  --black: #000000; /* Complete dark black used */
+:root{
+  --backgroundColor: #242424;    /* Dark mode color (partial black) */  
+  --black: #000000;   /* Complete dark black used */
 
   /* Background and border gradient Colors */
-  --gradientColorZero: #000000;
-  --gradientColorOne: #000000;
-  --gradientColorTwo: #000000;
+  --gradientColorZero: #E4521F;
+  --gradientColorOne: #AE012E;
+  --gradientColorTwo: #328F96;
   --gradientColorThree: #000000;
   --gradientColorFour: #000000;
-
+  
   /* Text colors */
-  --textColorbasic: #000000;
-  --textColorTags: #000000;
-  --textColorHighlight: #000000;
+  --textColorbasic: #ffffff;
+  --textColorTags: #ff6900;
+  --textColorHighlight: #00b0ff;
 
   /* Spacings */
   --divSpacing: 00px;
 }
+
 
 * {
   box-sizing: border-box;
@@ -100,6 +101,9 @@ div.offcanvas-header{
   background: transparent;
   transform: scale(1);
   transition: transform 0.3s;
+}
+.nav__close i{
+color: #ecdbba
 }
 
 ul.navbar-nav {
@@ -190,21 +194,21 @@ hr.navbar-border {
 input {
 	outline: none;
 }
-input[type=search] {
+input[type=search].search-box-input {
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
 	font-family: inherit;
 	font-size: 100%;
 }
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button {
+input.search-box-input::-webkit-search-decoration,
+input.search-box-input::-webkit-search-cancel-button {
 	display: none; 
 }
 #search-box{
   margin: auto 5px;
 }
 
-input[type=search] {
+input[type=search].search-box-input {
 	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
 	border: solid 1px #ccc;
 	padding: 5px 8px 5px 3px;
@@ -217,7 +221,7 @@ input[type=search] {
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
-input[type=search]:focus {
+input[type=search].search-box-input:focus {
 	width: 130px;
 	background-color: #fff;
 	border-color: #66CC75;
@@ -228,10 +232,10 @@ input[type=search]:focus {
 }
 
 
-input:-moz-placeholder {
+input.search-box-input:-moz-placeholder {
 	color: #999;
 }
-input::-webkit-input-placeholder {
+input.search-box-input::-webkit-input-placeholder {
 	color: #999;
 }
 
@@ -298,10 +302,4 @@ input::-webkit-input-placeholder {
 
     /* Spacings */
     --divSpacing: 00px;
-}
-
-*{
-    box-sizing: border-box;
-    border: none;
-    padding: none;
 }
