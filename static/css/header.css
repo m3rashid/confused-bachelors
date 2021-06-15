@@ -28,6 +28,7 @@
 /* navbar stuff */
 #navbar {
   background-color: #343a40;
+  padding: 0;
 }
 
 body.offcanvas-active {
@@ -136,9 +137,9 @@ hr.navbar-border {
   border: none;
   margin: 0;
   width: 100vw;
-  height: 5px;
-  background: linear-gradient(to right, #005F99 25%,#FF449F 50%,#FFF5B7 75%, #00EAD3 100%);
-  opacity: 1;
+  height: 4px;
+  background: linear-gradient(to right, #ff6900 25%,#AE012E 40%, #00b0ff 75%);
+  opacity: 0.75;
 }
 
 /* ============ mobile view ============ */
@@ -193,6 +194,9 @@ hr.navbar-border {
 
 input {
 	outline: none;
+}
+#search-box input[type=submit]{
+ display: none;
 }
 input[type=search].search-box-input {
 	-webkit-appearance: textfield;

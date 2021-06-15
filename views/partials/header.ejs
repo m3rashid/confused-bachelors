@@ -85,8 +85,9 @@
       </nav> 
       <div class="nav-user-info ms-auto d-flex flex-row">
       
-          <form  id="search-box">
-            <input class="search-box-input" type="search" placeholder="Search">
+          <form method="POST" action="/search" id="search-box">
+            <input name="search" autocomplete="off" class="search-box-input" type="search">
+            <input type="submit" />
           </form>
       
        
@@ -97,19 +98,7 @@
     <hr class="navbar-border">
 
     <header>
-      <ul>
-        <li>Brand Logo svg</li>
-        <li>Brand Name</li>
-        <li>Articles</li>
-        <li>Videos</li>
-        <li>Newsletter</li>
-        <li>Guides</li>
-      </ul>
-
-      <ul>
-        <li>icon find</li>
-        <li>profile</li>
-      </ul>
+     
     </header>
   </body>
 </html>
