@@ -142,7 +142,7 @@
   
   ::-webkit-scrollbar-thumb {
     background: #d4861c;
-    border-radius: 10px;
+    border-radius: 15px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
@@ -246,7 +246,7 @@
       -webkit-appearance: textfield;
       -webkit-box-sizing: content-box;
       box-sizing: content-box;
-      font-family: inherit;
+      /* font-family: inherit; */
       font-size: 100%;
   }
   input.search-box-input::-webkit-search-decoration,

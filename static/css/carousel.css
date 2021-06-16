@@ -5,8 +5,8 @@ body {
 
 .card__info {
     margin-top: 5%;
-    font-size: 1.4rem;
-    font-weight: 800;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .card__heading {
@@ -23,77 +23,160 @@ body {
 
 .card__tag {
     text-decoration: none;
-    color: rgb(255, 208, 0);
-    font-weight: 800;
+    font-weight: 700;
 }
-
+.card__tag:hover, .card__tag:focus{
+    text-decoration: none;
+    color: #ff6900;
+}
 body {
     background-color: black;
 }
 
 .show_outer{
-    margin-left: 5%;
+    background: linear-gradient(to right, var(--textColorTags) 25%,var(--gradientColorOne) 40%, var(--textColorHighlight) 75%);
+    border-radius: 15px;
+    height: 350px;
+    width:230px;
 }
 
 .show_item{
-    background-color: rgb(49, 49, 49);
-    width:300px;
-    border: 5px solid white;
-    height: 500px;
-    border-radius: 25px;
+    background-color: black;
+    height: 342px;
+    width: 222px;
+    margin: 4px;
+    border-radius: 15px;
     text-align: left;
-    padding: 5%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column-reverse;
 
 }
 
 .show_item h3{
     color: white;
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .owl-carousel {
-    float: right!important;
     display: flex;
-    width: 70%!important;
-    padding: 5%;
-    overflow-x: auto!important;
+    flex-wrap: nowrap;
+    padding: 30px;
+    overflow-x: auto !important;
+}
+.owl-carousel::-webkit-scrollbar-thumb{
+    background: #ff6900;
+}
+::-webkit-scrollbar-track{
+    margin-left: 20px;
+    margin-right: 20px;    
 }
 
 .item {
     overflow: visible!important;
     text-align: left;
-    height: 120%;
-    width: 100%;
-    padding: 30px;
+    padding: 20px;
     background-color: rgb(49, 49, 49);
-    box-shadow: 0px -5px 50px 10px black;
+    box-shadow: 0px -5px 30px 0px black;
     color: white;
-    border-radius: 25px 0px 0px 25px;
-    margin-left: 0%;
-    transition: transform 0.3s, border-radius 0.3s;
+    border-radius: 15px;
+    transition: transform 0.3s;
 }
 
 .owl-stage-outer {
-    overflow: visible!important;
+    overflow: visible !important;
 }
 
 .owl-item {
     overflow: visible!important;
-    width: 220px!important;
-    display: inline-flex!important;
+    width: 220px !important;
+    display: inline-flex !important;
 }
 
 .add_space {
-    transform: translateX(15px);
+    transform: translateX(35px);
     z-index: 0;
-    position: relative!important;
+    position: relative !important;
 }
 
 .focus_space {
-    overflow: visible!important;
+    overflow: visible !important;
     z-index: 2;
-    position: relative!important;
-    transform: translateY(-40px);
-    border-radius: 25px;
+    position: relative !important;
+    transform: translateY(-15px) translateX(-15px) rotate(5deg);
+    /* border-radius: 15px; */
 }
+.orange{
+    color: #ff6900
+}
+.carousel-right-margin{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    height: 100%;
+    width: 5px;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, var(--textColorTags) 25%,var(--gradientColorOne) 40%, var(--textColorHighlight) 75%);
+    box-shadow: -5px 0 5px 1px black;
+}
+.owl-prev, .owl-next{
+    display: none !important;
+}
+.row-sp{
+    margin: 52px;
+    position: relative;
+}
+
+@media(max-width: 768px){
+    .row-sp{
+        margin: 16px;
+    }
+    .show_outer{
+        height: 175px;
+        width:115px;
+    }
+    .show_item{
+        height: 169px;
+        width: 109px;
+        margin: 3px;
+        padding: 10px
+    }
+    .show_item h3{
+        font-size: 1em;
+    }
+    .card__tag{
+        font-size: 0.6em;
+    }
+    .item{
+        box-shadow: 0px -2.5px 15px 0px black;
+        padding: 10px;   
+    }
+    .owl-item {
+        width: 110px !important;
+    }
+    .card__heading {
+        font-size: 0.75rem;
+    }
+    .card__date {
+        font-size: .48rem;
+    }
+    .card__info {
+        font-size: 0.6em;
+    }
+    .focus_space {
+        transform: translateY(-7.5px) translateX(-7.5px) rotate(5deg);
+    }
+    .add_space {
+        transform: translateX(17.5px);
+    }
+    .owl-carousel {
+        padding: 15px;
+        padding-right: -300px;
+    }
+
+}
+
+/* Scale Factor = 1.52 */
