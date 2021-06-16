@@ -99,9 +99,10 @@ app.get("/", (req, res) => {
 });
 app.get("/blog", (req, res) => {
   res.render("blog-detail-homepage.ejs");
-
-    res.render("blog-detail-homepage.ejs");
 });
+app.get("/writers", (req, res) => {
+    res.render("writers.ejs");
+})
 
 app.post("/newsletter", function(req, res) {
     let firstName = req.body.fName;

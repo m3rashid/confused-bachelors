@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs') %>
+
+
+<div class="row-spaced">
+
+    <ul class="writer-list">
+        <% for(let i=0; i<6; i++){ %>
+            <li class="writers">
+                <div class="writer-page-photo">
+                    <img src="/images/1.png" alt="">
+                    <div>
+                        <div class="name">Writer's Name</div>
+                        <div class="brief-intro">B.Tech (Computer Sciences, Jamia Millia Islamia)</div>
+                    </div>
+                </div>
+                <div class="writer-page-intro">
+                    <!-- <div class="long-intro"> -->
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed esse illo non est assumenda nobis laboriosam. Veritatis molestias sunt inventore sapiente provident nesciunt neque harum voluptatum dolore earum quaerat consequatur beatae facere commodi, atque odio labore? Omnis esse dolorem porro est eaque consectetur adipisci ratione veritatis, repellat necessitatibus atque libero sit sint delectus, maxime sunt placeat quis excepturi voluptatem at autem. Deleniti accusamus sunt dolorum consectetur, mollitia a. Iusto, pariatur.
+                    <!-- </div> -->
+                </div>
+            </li>
+        <% } %>
+    </ul>
+
+</div>
+
+
+<%- include('./partials/footer.ejs') %>

@@ -502,11 +502,91 @@ body::-webkit-scrollbar{
 }
 
 
-
-
-
-
 /* Blog Homepage Ends */
+
+
+
+
+/* writer page Starts */
+.writer-page-photo{
+  height: 150px;
+  width: 150px;
+  display: grid;
+  flex-direction: 1fr;
+}
+
+.writer-page-photo img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.writer-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 92px;
+  grid-row-gap: 60px;
+  margin: 14px;
+  background-color: black;
+  border-radius: 15px;
+  padding: 35px;
+  padding-left: 67px;
+}
+
+.writers{
+  color: white;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-left: -32px;
+}
+.name{
+  font-weight: bold;
+  margin: 8px;
+  margin-top: 15px;
+}
+.brief-intro{
+  margin: 8px;
+  font-weight: 300;
+}
+.writer-page-intro{
+  margin: 10px;
+}
+
+@media(max-width: 768px){
+  .writer-list{
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 30px;
+    padding: 15px;
+    padding-left: 47px;
+  }
+  .writers{
+    grid-template-columns: 1fr;
+  }
+  .writer-page-photo{
+    grid-template-columns: 1fr 1fr;
+  }
+  .writer-page-photo img{
+    float: left;
+  }
+
+
+/* .writer-page-intro{
+  display: none;
+} */
+
+
+  
+}
+
+
+
+
+
+
+
+
+/* writer page Ends */
 
 
 
