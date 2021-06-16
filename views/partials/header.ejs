@@ -19,11 +19,9 @@
 
     <!-- User Defined CSS -->
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="css/homepage.css" />
-    <link rel="stylesheet" href="/css/blogdetail.css">
-    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/compose.css">
     <link rel="stylesheet" href="/css/carousel.css">
+
 
     <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js"></script>
@@ -39,10 +37,6 @@
 </head>
 
 <body>
-
-
-
-
     <span class="screen-darken"></span>
     <div id="navbar" class=" navbar navbar-expand-lg">
 
@@ -79,30 +73,21 @@
                         <a class="nav-link nav__btn" href="/newsletter"> Guides </a>
                     </li>
 
-
                 </ul>
-
             </div>
-
-
 
         </nav>
         <div class="nav-user-info ms-auto d-flex flex-row">
 
-            <form id="search-box">
+            <form method="post" action="/search"id="search-box">
                 <input class="search-box-input" type="search" placeholder="Search">
+            <input type="submit" class=" d-none">
             </form>
-
-
             <div class="user-profile">
                 <a href="/profile" class="fas fa-user-circle"></a>
             </div>
         </div>
-
     </div>
-
     <hr class="navbar-border">
-
 </body>
-
 </html>
