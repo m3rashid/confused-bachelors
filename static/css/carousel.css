@@ -56,18 +56,19 @@ body {
     float: right!important;
     display: flex;
     width: 70%!important;
-    padding: 5%;
-    overflow-x: auto!important;
+    height: 600px;
+    overflow: visible !important;
+    overflow-x: visible!important;
+
 }
 
 .item {
-    overflow: visible!important;
     text-align: left;
-    height: 120%;
+    height: 500px;
     width: 100%;
     padding: 30px;
     background-color: rgb(49, 49, 49);
-    box-shadow: 0px -5px 50px 10px black;
+    box-shadow: 0px 10px 20px 1px black;
     color: white;
     border-radius: 25px 0px 0px 25px;
     margin-left: 0%;

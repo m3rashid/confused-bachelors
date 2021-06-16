@@ -18,7 +18,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcrypt");
 // Database models
 const Blog = require("./models/blogs");
 const Writer = require("./models/writer");
@@ -26,14 +26,12 @@ const Writer = require("./models/writer");
 // Handling environment variables
 require("dotenv").config();
 
-const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
+
 const session = require("express-session");
 
-const marked = require("marked");
-const createDomPurify = require("dompurify");
-const { JSDOM } = require("jsdom");
-const dompurify = createDomPurify(new JSDOM().window);
+// const createDomPurify = require("dompurify");
+// const { JSDOM } = require("jsdom");
+// const dompurify = createDomPurify(new JSDOM().window);
 
 // Setting up initial express server
 const app = express();
@@ -51,12 +49,10 @@ app.use(
     })
 );
 
-// initializing user session
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Mongoose connection with database
 const Blogs = require("./blog");
+const login = require("./login");
 // Setting up the login route
 app.get("/:id/blogs", async function(req, res) {
     const id = req.params.id;
@@ -82,15 +78,63 @@ app.post("/compose", async function(req, res) {
     });
 })
 
-// Passport authentication setup
-passport.use(Writer.createStrategy());
-passport.serializeUser(Writer.serializeUser());
-passport.deserializeUser(Writer.deserializeUser());
 
 // Setting up the login route
 app.get("/login", function(req, res) {
     res.render("login", {
         titleTop: "Login",
+        err: ""
+    });
+});
+
+app.get("/register", function(req, res) {
+    res.render("login", {
+        titleTop: "register",
+        err: ""
+    });
+});
+
+app.post("/register", function(req,res){
+    console.log(req.body.username);
+    console.log(req.body.password);
+
+    bcrypt.hash(req.body.password, 2, function(err, hash) {
+        // Store hash in your password DB.
+        console.log(hash);
+        login.register(req.body.username,hash).then((value)=>{
+            console.log(value);
+            if(value !== undefined)
+            {
+                console.log("REGISTERED");
+                res.redirect("/login");
+            }else{
+                console.log("ERROR");
+                res.render("login",{
+                    titleTop: "register",
+                    err: "Error occured"
+                });
+            }
+        });
+    
+    });
+});
+
+app.post("/login",async function(req, res){
+    console.log(req.body.username);
+    console.log(req.body.password);
+    login.login(req.body.username,req.body.password).then((value)=>{
+        bcrypt.compare(req.body.password,value,function(_err,result){
+            if(result === true)
+            {
+                res.redirect('/');
+            }else
+            {
+                res.render("login", {
+                    titleTop: "Login",
+                    err: "Wrong Password"
+                });
+            }
+        })
     });
 });
 
