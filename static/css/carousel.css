@@ -31,17 +31,39 @@ body {
     background-color: black;
 }
 
-.owl-carousel {
-    margin-top: 5%;
+.show_outer{
     margin-left: 5%;
+}
+
+.show_item{
+    background-color: rgb(49, 49, 49);
+    width:300px;
+    border: 5px solid white;
+    height: 500px;
+    border-radius: 25px;
+    text-align: left;
+    padding: 5%;
+
+}
+
+.show_item h3{
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.owl-carousel {
+    float: right!important;
     display: flex;
-    width: 80%;
+    width: 70%!important;
+    padding: 5%;
+    overflow-x: auto!important;
 }
 
 .item {
     overflow: visible!important;
     text-align: left;
-    height: 500px;
+    height: 120%;
     width: 100%;
     padding: 30px;
     background-color: rgb(49, 49, 49);

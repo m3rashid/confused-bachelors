@@ -82,18 +82,29 @@
     </div>
 
 
-    <div class="owl-carousel owl-theme text-center">
-
-        <% for(let i=0; i<8; i++){ %>
-            <div class="item">
-                <span class="card__heading text-start">Article</span>
-                <div class="card__date text-start">Mon 14 June 2021</div>
-                <p class="card__info">How to live life during engineering in three simple steps</p>
+    <div class="d-flex text-end">
+        <div class="show_outer">
+            <div class="show_item">
+                <h3>
+                    Most useless blogs of all time
+                </h3>
                 <a class="card__tag" href="/">DEPRESSION</a>
-                <div></div>
-            </div>
-        <% } %>
 
+            </div>
+        </div>
+        <div class="owl-carousel owl-theme text-end">
+
+            <% for(let i=0; i<8; i++){ %>
+                <div class="item">
+                    <span class="card__heading text-start">Article</span>
+                    <div class="card__date text-start">Mon 14 June 2021</div>
+                    <p class="card__info">How to live life during engineering in three simple steps</p>
+                    <a class="card__tag" href="/">DEPRESSION</a>
+                    <div></div>
+                </div>
+            <% } %>
+
+        </div>
     </div>
     
 <%- include("partials/footer") %>
