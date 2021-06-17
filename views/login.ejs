@@ -1,0 +1,15 @@
+<%- include('./partials/header.ejs') %>
+
+    <h1 class="text-white"><%=titleTop%></h1>
+    <form action="" method="post">
+        <h4 class="text-warning"><%=err%></h4>
+        <div class="mb-3">
+            <input type="email" class="form-control" name="username" placeholder="Enter your email">
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Enter your password">
+          </div>
+          <button type="submit" class="">Submit</button>
+    </form>
+
+<%- include("partials/footer") %>

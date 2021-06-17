@@ -72,10 +72,10 @@ body {
 ::-webkit-scrollbar-track{
     margin-left: 20px;
     margin-right: 20px;    
+
 }
 
 .item {
-    overflow: visible!important;
     text-align: left;
     padding: 20px;
     background-color: rgb(49, 49, 49);
@@ -179,4 +179,4 @@ body {
 
 }
 
-/* Scale Factor = 1.52 */
+/* Scale Factor = 2 */
