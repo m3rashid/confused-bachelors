@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "marked": "^2.0.7",
     "mongoose": "^5.12.13",
+    "nodemon": "^2.0.9",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0"
